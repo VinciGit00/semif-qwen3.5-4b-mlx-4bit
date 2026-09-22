@@ -1,0 +1,116 @@
+{
+  "measured": [
+    {
+      "model": "semif",
+      "status": "completed",
+      "n_measured": 231,
+      "hardware": "Apple M4",
+      "hostname": "Mac.homenet.telecomitalia.it",
+      "os": "macOS-26.4-arm64-arm-64bit",
+      "python": "3.12.14",
+      "memory_gib": 16.0,
+      "load_s": 6.1775304160000815,
+      "device": "mps",
+      "dtype": "bfloat16",
+      "peak_rss_mib": 527.625,
+      "mps_tensor_mib": 0.01220703125,
+      "mps_driver_mib": 10214.984375,
+      "versions": {
+        "torch": "2.14.0",
+        "transformers": "5.17.0",
+        "peft": "0.21.0",
+        "numpy": "2.5.3",
+        "psutil": "7.2.2"
+      },
+      "measured_utc": "2026-09-22T07:39:21Z",
+      "correct": 186,
+      "n_scored": 231,
+      "accuracy": 0.8051948051948052,
+      "valid_fraction": 1.0,
+      "ece": 0.03897261985658576,
+      "brier": 0.2547969559726008,
+      "p50_ms": 1083.3871249997173,
+      "p95_ms": 11984.57062500006,
+      "decisions_per_s": 0.31490522464053183,
+      "by_tier": {
+        "easy": {
+          "n": 48,
+          "accuracy": 1.0
+        },
+        "hard": {
+          "n": 111,
+          "accuracy": 0.6126126126126126
+        },
+        "original": {
+          "n": 72,
+          "accuracy": 0.9722222222222222
+        }
+      }
+    },
+    {
+      "model": "reflex",
+      "status": "completed",
+      "n_measured": 231,
+      "hardware": "Apple M4",
+      "hostname": "Mac.homenet.telecomitalia.it",
+      "os": "macOS-26.4-arm64-arm-64bit",
+      "python": "3.12.14",
+      "memory_gib": 16.0,
+      "load_s": 9.198953792000339,
+      "device": "mps",
+      "dtype": "bfloat16",
+      "peak_rss_mib": 977.234375,
+      "mps_tensor_mib": 0.0126953125,
+      "mps_driver_mib": 10196.515625,
+      "versions": {
+        "torch": "2.14.0",
+        "transformers": "5.17.0",
+        "peft": "0.21.0",
+        "numpy": "2.5.3",
+        "psutil": "7.2.2"
+      },
+      "measured_utc": "2026-09-22T07:52:08Z",
+      "correct": 183,
+      "n_scored": 231,
+      "accuracy": 0.7922077922077922,
+      "valid_fraction": 1.0,
+      "ece": 0.042255181818181865,
+      "brier": 0.27921388415059306,
+      "p50_ms": 1056.6321250003057,
+      "p95_ms": 12314.426979500013,
+      "decisions_per_s": 0.30730802858713085,
+      "by_tier": {
+        "easy": {
+          "n": 48,
+          "accuracy": 1.0
+        },
+        "hard": {
+          "n": 111,
+          "accuracy": 0.6036036036036037
+        },
+        "original": {
+          "n": 72,
+          "accuracy": 0.9444444444444444
+        }
+      }
+    }
+  ],
+  "paired": {
+    "reflex_minus_semif_pp": -1.2987012987012987,
+    "bootstrap_95_percent_pp": [
+      -6.0606060606060606,
+      3.463203463203463
+    ],
+    "caveat": "Item bootstrap treats related public items as independent; descriptive, not population uncertainty."
+  },
+  "not_run": {
+    "model": "djev",
+    "leaderboard_rank": 3,
+    "status": "not_run",
+    "reason": "Published djev-dev runtime requires NVIDIA/CUDA and patched vLLM; 26B BF16 weights alone exceed this 16 GiB Mac. No remote endpoint supplied.",
+    "source": "https://github.com/Davipar/djev-dev",
+    "n_measured": 0,
+    "accuracy": null,
+    "p50_ms": null
+  }
+}

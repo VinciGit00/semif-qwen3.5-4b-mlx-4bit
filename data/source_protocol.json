@@ -1,0 +1,31 @@
+{
+  "sources": {
+    "semif": [
+      "https://github.com/TheoLeeCJ/SemIf",
+      "1f2dea3e25379f9dfc98cb83c324f00ab5deda37"
+    ],
+    "reflex": [
+      "https://github.com/kshetrajna12/reflex",
+      "1add69387815a74aa02e55f6a8ff8e5589378f10"
+    ],
+    "jevbench": [
+      "https://github.com/fstandhartinger/jevbench",
+      "75e6224ed8103bbc3485ca74820a2eaf7ce8abe0"
+    ]
+  },
+  "dataset_sha256": {
+    "easy": "231df3c2c8e88a1a8c137ebe85de96ba70fabd330849098ac7b3c52c70b7172b",
+    "original": "5c2414edb3006b8bfcb70fda433f0f9ca015759433849f8d3104328a1f7c4180",
+    "hard": "89e9e6becb33ed88c1de7d42dcc87531b2fb64cfaef4e1986faf7c37b3f80ebb"
+  },
+  "base_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "adapter_revision": "9df1cbbbc1837ba494530a59d3d9d345688ed250",
+  "seed": 20260922,
+  "n": 231,
+  "scope": "All 231 public JevBench decisions; not the private 534-item leaderboard.",
+  "training": "No training, model selection, or calibration fitting in this benchmark. Public items were used in upstream development, including reflex; not an unseen test set.",
+  "timing": "One warmup on an independent synthetic item; one synchronized end-to-end call per public item, shuffled identically for both systems. Single process/model; batch 1; no state reuse between requests.",
+  "precision": "BF16 for both local systems, no quantization, no decoding.",
+  "memory": "Process RSS sampled every 20 ms during evaluation; post-run MPS allocation snapshots. Unified memory measurements overlap: do not add them.",
+  "comparison": "Same state, questions, options and scoring; each author's own prompt/readout. SemIf Score uses JevBench's documented ordinal-option extension."
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "variant": "baseline",
+    "prompt_tokens": 75,
+    "prompt_tokens_per_second": 85.77930642881532,
+    "generation_tokens": 384,
+    "generation_tokens_per_second": 11.44442807809755
+  },
+  {
+    "variant": "quantized",
+    "prompt_tokens": 75,
+    "prompt_tokens_per_second": 198.69812932533242,
+    "generation_tokens": 384,
+    "generation_tokens_per_second": 35.64083106198285
+  }
+]

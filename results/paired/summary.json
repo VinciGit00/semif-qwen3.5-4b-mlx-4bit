@@ -1,0 +1,61 @@
+{
+  "measured": [
+    {
+      "variant": "baseline",
+      "correct": 186,
+      "total": 231,
+      "accuracy_percent": 80.51948051948052,
+      "median_latency_ms": 694.0775000002759,
+      "input_tokens_per_second": 382.4961761384224,
+      "decisions_per_second": 0.5475133951838266,
+      "peak_mlx_gib": 8.996778469532728,
+      "parameter_gib": 7.833829402923584
+    },
+    {
+      "variant": "quantized",
+      "correct": 180,
+      "total": 231,
+      "accuracy_percent": 77.92207792207793,
+      "median_latency_ms": 566.0628329987958,
+      "input_tokens_per_second": 384.7971290862824,
+      "decisions_per_second": 0.5508070295760961,
+      "peak_mlx_gib": 3.3698406033217907,
+      "parameter_gib": 2.204556941986084
+    }
+  ],
+  "paired": {
+    "quantized_minus_baseline_pp": -2.5974025974025974,
+    "paired_bootstrap_95_pp": [
+      -6.926406926406926,
+      1.7316017316017316
+    ],
+    "regressions": [
+      "hard-sol-a-multi_hop-07",
+      "hard-opus-a-long_policy-08",
+      "hard-opus-a-long_policy-11",
+      "hard-opus-b-ambiguous-02",
+      "original-adequacy-03-1",
+      "hard-sol-b-long_policy-06",
+      "hard-opus-b-tradeoff-12",
+      "hard-opus-b-tradeoff-08",
+      "hard-opus-b-probability-01",
+      "original-policy-03-1",
+      "hard-opus-b-ambiguous-09",
+      "original-adequacy-03-0",
+      "hard-opus-b-tradeoff-01",
+      "hard-opus-a-temporal_numeric-03",
+      "hard-sol-a-multi_hop-08"
+    ],
+    "improvements": [
+      "hard-sol-b-long_policy-01",
+      "hard-opus-b-multi_hop-04",
+      "hard-sol-c-judge_hard-09",
+      "hard-opus-b-multi_hop-07",
+      "hard-opus-c-long_policy-05",
+      "easy-fact-05",
+      "hard-opus-b-ambiguous-03",
+      "hard-opus-a-temporal_numeric-06",
+      "hard-opus-c-temporal_numeric-08"
+    ]
+  }
+}

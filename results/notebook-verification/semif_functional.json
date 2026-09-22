@@ -1,0 +1,149 @@
+{
+  "system": "semif",
+  "timestamp_utc": "2026-09-22T09:27:08.992079+00:00",
+  "scope": "Four fixed synthetic functional checks; not a held-out accuracy estimate.",
+  "platform": "macOS-26.4-arm64-arm-64bit",
+  "python": "3.12.14",
+  "versions": {
+    "mlx": "0.32.2",
+    "mlx-lm": "0.32.0",
+    "transformers": "5.17.0",
+    "numpy": "2.5.3"
+  },
+  "checksum_verification": "passed",
+  "manifest": {
+    "system": "semif",
+    "format": "MLX Safetensors",
+    "text_only": true,
+    "base_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "adapter_revision": null,
+    "mlx_lm_revision": "a63e24c389382619eb6d9af656e3b46024be217a",
+    "baseline_dtypes": [
+      "mlx.core.bfloat16",
+      "mlx.core.float32"
+    ],
+    "baseline_parameter_bytes": 8411510272,
+    "quantization": {
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine"
+    },
+    "reload_max_probability_error": 0.0,
+    "files_sha256": {
+      "chat_template.jinja": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+      "config.json": "b56caa5908a5fa226498fbb497aac0a67de07637126830dd24b1838bfe8e7846",
+      "model.safetensors": "6626ef65bc697df9217e91372430cef39772ffda804f37f9825e453b15c2414a",
+      "model.safetensors.index.json": "bedb8a543e5b510447d4e91d268eeac6a154cc1d2dd0c7542593419e59ec8310",
+      "tokenizer.json": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+      "tokenizer_config.json": "95c557768e6b88a7128befc7bfd3c7de50e5d51af9b8b33a9f4dee0e04f99679"
+    }
+  },
+  "weight_bytes": 2367244781,
+  "passed": 4,
+  "total": 4,
+  "cases": [
+    {
+      "id": "damaged-parcel",
+      "state": "The parcel arrived broken.",
+      "question": {
+        "type": "choice",
+        "instructions": "Which condition describes the parcel?",
+        "criteria": {
+          "damaged": "The parcel is broken or damaged.",
+          "intact": "The parcel is undamaged."
+        }
+      },
+      "expected": "damaged",
+      "probabilities": {
+        "damaged": 0.9997694932780068,
+        "intact": 0.0002305067219931397
+      },
+      "predicted": "damaged",
+      "valid_distribution": true,
+      "passed": true,
+      "prompt_sha256": "779ac77eced7cc38538391919d52650d334aed74fb4d1963c572356495480ce4",
+      "input_tokens": 111,
+      "token_ids_sha256": "ae29c440931d3c29b52816b9e09f46f93ec8c3708b902fb9833c8f4c8db895e4",
+      "option_logits": [
+        27.625,
+        19.25
+      ]
+    },
+    {
+      "id": "explicit-yes",
+      "state": "The shop is open on Monday.",
+      "question": {
+        "type": "noul",
+        "instructions": "Is the shop open on Monday?"
+      },
+      "expected": "yes",
+      "probabilities": {
+        "yes": 0.9982992775885648,
+        "no": 0.001700722411435288
+      },
+      "predicted": "yes",
+      "valid_distribution": true,
+      "passed": true,
+      "prompt_sha256": "01d75677aa879753aca15871ffea24a38cc2837e552f4bb33480573dff317775",
+      "input_tokens": 109,
+      "token_ids_sha256": "22448776ced4061102a6f6ec0bffb9142eee677f98a68cd3b7830cbd6f980907",
+      "option_logits": [
+        28.125,
+        21.75
+      ]
+    },
+    {
+      "id": "explicit-no",
+      "state": "The shop is closed on Sunday.",
+      "question": {
+        "type": "noul",
+        "instructions": "Is the shop open on Sunday?"
+      },
+      "expected": "no",
+      "probabilities": {
+        "yes": 0.033085978388704126,
+        "no": 0.9669140216112958
+      },
+      "predicted": "no",
+      "valid_distribution": true,
+      "passed": true,
+      "prompt_sha256": "934810f54e9f11bc2bdf8c05a545cf5e1a0f9c092f9f5ca17ed6ced4a5af67fb",
+      "input_tokens": 109,
+      "token_ids_sha256": "3be47fe27b003fb7547f034d657643d4e8660fbb63399bffc8478d3ed2af6404",
+      "option_logits": [
+        24.375,
+        27.75
+      ]
+    },
+    {
+      "id": "high-satisfaction",
+      "state": "I am extremely satisfied. Everything was perfect!",
+      "question": {
+        "type": "score",
+        "instructions": "Rate the customer's satisfaction.",
+        "criteria": [
+          "Dissatisfied",
+          "Neutral",
+          "Satisfied"
+        ]
+      },
+      "expected": "2",
+      "probabilities": {
+        "0": 0.09850568577644736,
+        "1": 0.07671630521968295,
+        "2": 0.8247780090038697
+      },
+      "predicted": "2",
+      "valid_distribution": true,
+      "passed": true,
+      "prompt_sha256": "e5d87d8ee6e0a35da33375163520e3b9773cd3eb97df6ff02d4b3d4734fc11d9",
+      "input_tokens": 118,
+      "token_ids_sha256": "9b825fd75770f314e6eb6501286ed9babc5f10e7894c12c4c2ae0360d441c771",
+      "option_logits": [
+        22.5,
+        22.25,
+        24.625
+      ]
+    }
+  ]
+}

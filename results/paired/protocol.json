@@ -1,0 +1,38 @@
+{
+  "base_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "mlx_lm_revision": "a63e24c389382619eb6d9af656e3b46024be217a",
+  "tasks_sha256": "ee0b0141e4d2bec05a5667f7f21ba4669c4fe7a80e3f9142b078b1f5a34f7c3f",
+  "export_manifest": {
+    "system": "semif",
+    "format": "MLX Safetensors",
+    "text_only": true,
+    "base_revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+    "adapter_revision": null,
+    "mlx_lm_revision": "a63e24c389382619eb6d9af656e3b46024be217a",
+    "baseline_dtypes": [
+      "mlx.core.bfloat16",
+      "mlx.core.float32"
+    ],
+    "baseline_parameter_bytes": 8411510272,
+    "quantization": {
+      "group_size": 64,
+      "bits": 4,
+      "mode": "affine"
+    },
+    "reload_max_probability_error": 0.0,
+    "files_sha256": {
+      "chat_template.jinja": "a4aee8afcf2e0711942cf848899be66016f8d14a889ff9ede07bca099c28f715",
+      "config.json": "b56caa5908a5fa226498fbb497aac0a67de07637126830dd24b1838bfe8e7846",
+      "model.safetensors": "6626ef65bc697df9217e91372430cef39772ffda804f37f9825e453b15c2414a",
+      "model.safetensors.index.json": "bedb8a543e5b510447d4e91d268eeac6a154cc1d2dd0c7542593419e59ec8310",
+      "tokenizer.json": "06b9509352d2af50381ab2247e083b80d32d5c0aba91c272ca9ff729b6a0e523",
+      "tokenizer_config.json": "95c557768e6b88a7128befc7bfd3c7de50e5d51af9b8b33a9f4dee0e04f99679"
+    }
+  },
+  "seed": 42,
+  "n": 231,
+  "timestamp_utc": "2026-09-22T08:56:50Z",
+  "source": "/Users/marco/GitHub/LLM-crash-course/21-openjev/0-usage/artifacts/hf/hub/models--Qwen--Qwen3.5-4B/snapshots/851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+  "scope": "Public JevBench, not held-out; no tuning or fitting in this run.",
+  "protocol": "Same token IDs and readout; sequential isolated processes; source BF16/FP32 then 4-bit; one independent warmup; batch 1."
+}
