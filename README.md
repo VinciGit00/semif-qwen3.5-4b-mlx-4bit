@@ -15,7 +15,25 @@ This is a text-only decision model using SemIf's prompts and option-logit
 readout over Qwen3.5-4B. No fine-tuning or adapter is added.
 
 This single README serves GitHub and Hugging Face, and records Ollama
-compatibility below. No remote publication has been performed.
+compatibility below.
+
+## Published repositories
+
+- [GitHub: code, executed notebooks and complete benchmark evidence](https://github.com/VinciGit00/semif-qwen3.5-4b-mlx-4bit)
+- [Hugging Face: verified MLX 4-bit weights and the same reproduction package](https://huggingface.co/vinci00/semif-qwen3.5-4b-mlx-4bit)
+
+After installing the dependencies below, download the published export instead
+of converting again:
+
+```bash
+hf download vinci00/semif-qwen3.5-4b-mlx-4bit \
+  --local-dir artifacts/semif-4b-mlx-4bit
+python verify_decision_exports.py --system semif --export artifacts/semif-4b-mlx-4bit
+```
+
+The weights are the same checkpoint used for the measured results below.
+Ollama publication remains pending a working local import and runtime check;
+MLX measurements are not Ollama measurements.
 
 ## Why this checkpoint?
 
