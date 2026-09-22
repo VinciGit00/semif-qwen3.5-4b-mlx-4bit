@@ -15,7 +15,26 @@ This is a text-only decision model using SemIf's prompts and option-logit
 readout over Qwen3.5-4B. No fine-tuning or adapter is added.
 
 This single README serves GitHub and Hugging Face, and records Ollama
-compatibility below. No remote publication has been performed.
+compatibility below.
+
+## Published repositories
+
+- [GitHub: code, executed notebooks and complete benchmark evidence](https://github.com/VinciGit00/semif-qwen3.5-4b-mlx-4bit)
+- [Hugging Face: verified MLX 4-bit weights and the same reproduction package](https://huggingface.co/vinci00/semif-qwen3.5-4b-mlx-4bit)
+
+After installing the dependencies below, download the published export instead
+of converting again:
+
+```bash
+hf download vinci00/semif-qwen3.5-4b-mlx-4bit \
+  --local-dir artifacts/semif-4b-mlx-4bit
+python verify_decision_exports.py --system semif --export artifacts/semif-4b-mlx-4bit
+```
+
+The weights are the same checkpoint used for the measured results below.
+Ollama 0.34.2 successfully imported the export preserving its source
+quantization and passed the generation smoke test below. Registry upload is
+in progress. MLX measurements are not Ollama measurements.
 
 ## Why this checkpoint?
 
@@ -48,7 +67,7 @@ The [source benchmark report](data/source_benchmark_summary.json) and
 | Fixed functional requests | 4/4 passed: choice, yes, no, ordered score |
 | Quantized JevBench accuracy | 180/231 (77.92%) |
 | Paired MLX unquantized versus 4-bit accuracy | 80.52% → 77.92%; −2.60 percentage points |
-| Ollama execution | Not measured; no compatible artifact produced |
+| Ollama execution | Native MLX import and arithmetic generation smoke test passed on 0.34.2; decision accuracy not evaluated |
 
 See the [raw quantized verification report](data/semif_export_verification.json)
 for full probabilities, inputs, versions, hashes and timestamps. A successful
@@ -269,12 +288,32 @@ For a Hub model repository also include the export's weights, tokenizer,
 configuration and manifest. When weights are placed at the repository root,
 use `load(".")` and `--model .`. No upload command is run by these scripts.
 
-**Ollama: no compatible artifact has been produced or verified.** The
-[official import documentation](https://docs.ollama.com/import) describes
-Safetensors and GGUF imports; a shared file extension does not establish
-support for packed MLX tensors or this restricted option-logit readout.
-A separate supported conversion, tested readout, Modelfile and paired
-evaluation are still needed. No Ollama tag, run command or score is claimed.
+### Ollama: reproduce the verified native import
+
+On the Apple M4 Mac mini, Ollama 0.34.2 imported the existing MLX Safetensors
+export with the message `preserving source quantization`. No GGUF conversion
+or additional quantization was requested. After downloading the export above:
+
+```bash
+cat > Modelfile <<'EOF'
+FROM ./artifacts/semif-4b-mlx-4bit
+PARAMETER temperature 0
+PARAMETER num_ctx 4096
+EOF
+ollama create semif-qwen3.5-4b-mlx-4bit -f Modelfile
+ollama run semif-qwen3.5-4b-mlx-4bit --think=false \
+  'What is 17 multiplied by 6? Answer with the number only.'
+```
+
+The verified output was `102`. A repeated API smoke test on 2026-09-22 used
+`stream: false`, `think: false`, temperature 0 and `num_predict: 32` and
+returned the same answer with `done_reason: stop` (28 prompt tokens, 3 output
+tokens). This establishes basic import and generation functionality only.
+It is too short to constitute a throughput benchmark. SemIf's restricted
+option-logit readout and its full JevBench accuracy have not been validated
+under Ollama; use the Python MLX implementation for the reported results.
+
+Registry upload to `mvincig11/semif-qwen3.5-4b-mlx-4bit:latest` is in progress.
 
 ## Scope and attribution
 
@@ -291,4 +330,4 @@ Credit [SemIf](https://github.com/TheoLeeCJ/SemIf),
 [JevBench](https://github.com/fstandhartinger/jevbench).
 
 Evidence gaps: an independent held-out retention study, broader robustness,
-and a separately verified Ollama artifact remain outstanding.
+and an Ollama evaluation of the decision interface remain outstanding.
